@@ -3,64 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChoriChava - Irresistiblemente deliciosos</title>
+    <title>ChoriChava</title>
 
     <style>
+        /* ====== ESTILOS GENERALES ====== */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            background: #fff7e6; /* crema suave */
-            color: #331111;
+            background-color: #fff3da; /* cremita suave */
         }
 
+        /* ====== SECCIÓN HERO ====== */
         .hero {
-            height: 100vh;
-            background: url('Portada.jpeg') center/cover no-repeat;
             position: relative;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
+            color: white;
+            overflow: hidden;
         }
 
+        /* Imagen de fondo + oscurecedor */
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
+            background: url("Portada.jpeg") center/cover no-repeat;
+            z-index: -2;
         }
 
-        /* LOGO GRANDE (un poco más pequeño que el anterior) */
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45); /* oscurece para que resalte el logo y el botón */
+            z-index: -1;
+        }
+
+        /* ====== LOGO ====== */
+        /* LOGO GRANDE (ligeramente más pequeño que el primero que usamos) */
         .logo {
             position: relative;
             z-index: 2;
-            width: 560px;        /* mismo tamaño */
-            margin-bottom: -60px;  /* sube el logo */
+            width: 560px;          /* tamaño del logo en escritorio */
+            margin-bottom: -60px;  /* sube el contenido que viene después */
         }
 
-        /* TÍTULO AJUSTADO */
-        .hero h1 {
-            z-index: 2;
-            font-size: 2rem;     /* un pelín más pequeño */
-            font-weight: 700;
-            color: white;
-            margin-top: -190px;   /* SUBIDO MAS */
-            margin-bottom: 5px;  
-            text-shadow: 0 3px 6px rgba(0,0,0,0.5);
-       }
-
+        /* ====== BOTÓN ====== */
         .btn {
             position: relative;
             z-index: 2;
-            background: #7b0f13;
+            background: #7b0f13;          /* vino tinto */
             color: white;
             padding: 18px 40px;
             border-radius: 40px;
@@ -69,32 +70,33 @@
             border: 3px solid #ffcc66;
             text-decoration: none;
             transition: 0.3s;
-            margin-top: -90px;   /* 🔥 SUBE EL BOTÓN */
+            margin-top: -100px;           /* 🔥 SUBE MUCHO EL BOTÓN (ajusta si quieres más o menos) */
         }
 
         .btn:hover {
-            background: #5a0b0e;
-            transform: scale(1.05);
+            background: #a2161c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
         }
 
-        @media (max-width: 800px) {
-            .logo {
-                width: 400px;
-            }
-        }
+        /* ====== AJUSTES PARA CELULAR ====== */
+        @media (max-width: 768px) {
 
-        @media (max-width: 600px) {
-            .logo {
-                width: 260px;
+            .hero {
+                padding-top: 90px;
+                padding-bottom: 60px;
             }
 
-            .hero h1 {
-                font-size: 1.8rem;
+            .logo {
+                width: 320px;          /* logo más pequeño en celular */
+                margin-bottom: -30px;  /* espacio justo debajo del logo */
             }
 
             .btn {
+                margin-top: -40px;     /* sube el botón, pero sin que se pegue demasiado */
                 font-size: 1rem;
                 padding: 14px 30px;
+                border-radius: 32px;
             }
         }
     </style>
@@ -102,7 +104,10 @@
 <body>
 
     <section class="hero">
+        <!-- LOGO -->
         <img src="Chorizo.png" alt="Logo ChoriChava" class="logo">
+
+        <!-- BOTÓN PRINCIPAL -->
         <a href="#" class="btn">Conoce nuestros productos</a>
     </section>
 
