@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chorichava - Irresistiblemente Deliciosos</title>
+    <title>ChoriChava - Irresistiblemente deliciosos</title>
 
     <style>
+        /* ---------- RESETEO BÁSICO ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -13,121 +14,185 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: #fff7ec; /* cremita suave */
+            color: #331111;
         }
 
-        /* NAVBAR */
+        a {
+            text-decoration: none;
+        }
+
+        /* ---------- BARRA SUPERIOR ---------- */
         header {
-            width: 100%;
             position: fixed;
             top: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            padding: 15px 40px;
+            right: 0;
+            height: 60px;
+            padding: 0 40px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.65);
+            color: #ffffff;
             z-index: 1000;
+            backdrop-filter: blur(6px);
         }
 
-        header h2 {
-            color: #fff;
-            letter-spacing: 2px;
+        .header-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 20px;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
             gap: 20px;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 15px;
         }
 
         nav a:hover {
-            color: #ff6b6b;
+            color: #f2a23b; /* dorado del logo */
         }
 
-        /* PORTADA */
-        .portada {
-            height: 100vh;
+        /* ---------- PORTADA (HERO) ---------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
             background-image: url("Portada.jpeg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding-top: 100px;
-            position: relative;
+            padding: 0 16px;
         }
 
-        .portada::before {
+        /* capa oscura encima de la foto para que se lea el texto */
+        .hero::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.7));
+            z-index: 1;
         }
 
-        .contenido {
+        .hero-content {
             position: relative;
             z-index: 2;
-            color: white;
+            color: #ffffff;
+            max-width: 700px;
         }
 
-        .logo-texto {
-            background: rgba(255, 107, 107, 0.9);
-            padding: 30px 60px;
-            border-radius: 20px;
+        /* tarjeta con el logo */
+        .hero-logo {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 18px 34px;
+            border-radius: 26px;
+            margin-bottom: 28px;
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.65);
+        }
+
+        .hero-logo img {
+            display: block;
+            height: 80px;          /* ajusta aquí si lo ves muy grande/pequeño */
+            width: auto;
+        }
+
+        .hero-slogan {
+            font-size: 26px;
             margin-bottom: 30px;
-            font-size: 50px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            text-shadow: 0 3px 8px rgba(0,0,0,0.7);
         }
 
-        .slogan {
-            font-size: 28px;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        .hero-btn {
+            display: inline-block;
+            background: #7b1f1f;      /* vino del logo */
+            color: #fdf7ec;
+            padding: 16px 42px;
+            border-radius: 999px;
+            border: 2px solid #f2a23b; /* dorado del logo */
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
         }
 
-        .boton {
-            background: #ff6b6b;
-            color: white;
-            padding: 18px 45px;
-            font-size: 22px;
-            border-radius: 50px;
-            border: 3px solid white;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            background: #a32a2a;
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.8);
         }
 
-        .boton:hover {
-            transform: translateY(-5px);
-            background: #ff5252;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+        /* ---------- SECCIÓN DE PRODUCTOS (placeholder) ---------- */
+        section#productos {
+            padding: 80px 20px 100px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
+        section#productos h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: #4a1111;
+        }
+
+        section#productos p {
+            font-size: 17px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* ---------- FOOTER SIMPLE ---------- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #775555;
+        }
+
+        /* ---------- RESPONSIVE PARA CELULAR ---------- */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 16px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .hero-logo img {
+                height: 70px;
+            }
+
+            .hero-slogan {
+                font-size: 22px;
+            }
+
+            .hero-btn {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- BARRA SUPERIOR -->
     <header>
-        <h2>ChoriChava</h2>
+        <div class="header-brand">ChoriChava</div>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -138,14 +203,40 @@
         </nav>
     </header>
 
-    <!-- PORTADA -->
-    <section class="portada" id="inicio">
-        <div class="contenido">
-            <div class="logo-texto">CHORICHAVA</div>
-            <p class="slogan">Irresistiblemente Deliciosos</p>
-            <a class="boton" href="#productos">Conoce Nuestros Productos</a>
+    <!-- PORTADA PRINCIPAL -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <!-- AQUÍ VA TU ARCHIVO Chori.png -->
+                <img src="Chori.png" alt="ChoriChava - Irresistiblemente deliciosos">
+            </div>
+
+            <p class="hero-slogan">Irresistiblemente deliciosos</p>
+
+            <a href="#productos" class="hero-btn">
+                Conoce nuestros productos
+            </a>
         </div>
     </section>
+
+    <!-- SECCIÓN DE PRODUCTOS (la llenamos después) -->
+    <section id="productos">
+        <h2>Nuestros productos</h2>
+        <p>
+            Aquí más adelante vamos a construir el catálogo de Chorichava:
+            chorizos, combos para asados, presentaciones para negocio, etc.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+        © <span id="anio"></span> ChoriChava · Todos los derechos reservados.
+    </footer>
+
+    <script>
+        // Rellenar el año automáticamente
+        document.getElementById("anio").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
