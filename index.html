@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chorichava - Chorizos Artesanales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* PORTADA CON TU IMAGEN */
+        .portada {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Imagen de fondo */
+        .portada::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Imagen generada el 2 de septiembre de 2025 a las 6:52 a. m. (2) - copia.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6);
+            z-index: -1;
+        }
+
+        /* Contenido sobre la imagen */
+        .contenido {
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .logo-texto {
+            background: rgba(255, 107, 107, 0.9);
+            padding: 30px 60px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 72px;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            letter-spacing: 5px;
+        }
+
+        .slogan {
+            font-size: 28px;
+            margin-bottom: 50px;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 20px 50px;
+            font-size: 22px;
+            border: 3px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            background: #ff5252;
+        }
+    </style>
+</head>
+<body>
+    <div class="portada">
+        <div class="contenido">
+            <div class="logo-texto">
+                <h1>CHORICHAVA</h1>
+            </div>
+            <p class="slogan">La tradición del sabor auténtico</p>
+            <button class="cta-button">Conoce Nuestros Productos</button>
+        </div>
+    </div>
+</body>
+</html>
