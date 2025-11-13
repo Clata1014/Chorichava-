@@ -20,7 +20,7 @@
         /* ====== SECCIÓN HERO ====== */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 60vh; /* 🔥 portada más bajita y elegante */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -44,24 +44,23 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45); /* oscurece para que resalte el logo y el botón */
+            background: rgba(0, 0, 0, 0.45);
             z-index: -1;
         }
 
         /* ====== LOGO ====== */
-        /* LOGO GRANDE (ligeramente más pequeño que el primero que usamos) */
         .logo {
             position: relative;
             z-index: 2;
-            width: 560px;          /* tamaño del logo en escritorio */
-            margin-bottom: -60px;  /* sube el contenido que viene después */
+            width: 560px;          /* tamaño en escritorio */
+            margin-bottom: -60px;  /* sube el contenido */
         }
 
         /* ====== BOTÓN ====== */
         .btn {
             position: relative;
             z-index: 2;
-            background: #7b0f13;          /* vino tinto */
+            background: #7b0f13;
             color: white;
             padding: 18px 40px;
             border-radius: 40px;
@@ -70,7 +69,7 @@
             border: 3px solid #ffcc66;
             text-decoration: none;
             transition: 0.3s;
-            margin-top: -100px;           /* 🔥 SUBE MUCHO EL BOTÓN (ajusta si quieres más o menos) */
+            margin-top: -100px; /* 🔥 SUBE el botón en escritorio */
         }
 
         .btn:hover {
@@ -79,21 +78,22 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
         }
 
-        /* ====== AJUSTES PARA CELULAR ====== */
+        /* ====== 📱 AJUSTES PARA CELULAR ====== */
         @media (max-width: 768px) {
 
             .hero {
-                padding-top: 90px;
-                padding-bottom: 60px;
+                padding-top: 70px;      /* menos alto para que no se vea tan largo */
+                padding-bottom: 40px;
+                min-height: 70vh;
             }
 
             .logo {
-                width: 320px;          /* logo más pequeño en celular */
-                margin-bottom: -30px;  /* espacio justo debajo del logo */
+                width: 78%;            /* logo más proporcional */
+                margin-bottom: -40px; 
             }
 
             .btn {
-                margin-top: -40px;     /* sube el botón, pero sin que se pegue demasiado */
+                margin-top: -20px;     /* botón más arriba en celular */
                 font-size: 1rem;
                 padding: 14px 30px;
                 border-radius: 32px;
@@ -101,6 +101,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <section class="hero">
