@@ -47,8 +47,9 @@
         }
 
         .navbar-logo {
-            height: 50px;
+            height: 45px;
             cursor: pointer;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
         }
 
         .nav-links {
@@ -317,6 +318,43 @@
             transform: none;
         }
 
+        /* Botón de pago con tarjeta (para implementación futura) */
+        .cart-payment-btn {
+            width: 100%;
+            background: var(--vino-oscuro);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-payment-btn:hover:not(:disabled) {
+            background: var(--vino-claro);
+            transform: scale(1.02);
+        }
+
+        .cart-payment-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .payment-divider {
+            text-align: center;
+            margin: 15px 0 10px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
         /* Menú móvil */
         .menu-toggle {
             display: none;
@@ -337,13 +375,13 @@
         /* ====== SECCIÓN HERO ====== */
         .hero {
             position: relative;
-            min-height: 35vh;
+            min-height: 30vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 50px 20px 30px;
             color: white;
             overflow: hidden;
         }
@@ -683,8 +721,8 @@
             }
 
             .hero {
-                min-height: 35vh;
-                padding: 50px 20px 30px;
+                min-height: 30vh;
+                padding: 40px 20px 25px;
             }
 
             .logo {
@@ -742,7 +780,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="navbar-container">
-            <img src="Chorichava Transparente.png" alt="ChoriChava" class="navbar-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <img src="Chorizo.png" alt="ChoriChava" class="navbar-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
@@ -791,6 +829,14 @@
             <button class="cart-checkout-btn" onclick="checkoutCart()">
                 <span>💬</span> Finalizar Pedido por WhatsApp
             </button>
+
+            <!-- PAGOS CON TARJETA - Para implementación futura -->
+            <!--
+            <div class="payment-divider">o</div>
+            <button class="cart-payment-btn" onclick="processCardPayment()" disabled>
+                <span>💳</span> Pagar con Tarjeta (Próximamente)
+            </button>
+            -->
         </div>
     </div>
 
@@ -801,12 +847,13 @@
 
     <!-- SOBRE NOSOTROS -->
     <section class="about" id="nosotros">
-        <h2>Sabor Tradicional en Cada Bocado</h2>
+        <h2>Chorizos Gourmet de Clase Mundial</h2>
         <p>
-            En ChoriChava nos especializamos en crear chorizos artesanales con recetas tradicionales
-            que han pasado de generación en generación. Cada chorizo es elaborado con ingredientes
-            100% naturales, seleccionados cuidadosamente para garantizar ese sabor irresistiblemente delicioso
-            que nos caracteriza.
+            ChoriChava es un restaurante especializado en chorizos gourmet ubicado en Medellín, Colombia.
+            Ofrecemos más de 8 sabores de chorizos inspirados en diferentes países del mundo, todos
+            elaborados artesanalmente con vinos blancos, tintos y especias cuidadosamente seleccionadas.
+            Nuestro chorizo estrella "Mar y Tierra" combina lo mejor del mar y la tierra en una experiencia
+            gastronómica única e irresistible.
         </p>
 
         <div class="badges">
@@ -925,7 +972,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <img src="Chorichava Transparente.png" alt="ChoriChava" class="footer-logo">
+        <img src="Chorizo.png" alt="ChoriChava" class="footer-logo">
 
         <div class="social-links">
             <a href="#" class="social-link" title="Facebook">📘</a>
@@ -1151,6 +1198,124 @@
 
         // Cargar carrito al iniciar la página
         window.addEventListener('DOMContentLoaded', loadCart);
+
+        // ========== PAGOS CON TARJETA (PARA IMPLEMENTACIÓN FUTURA) ==========
+        /*
+         * INSTRUCCIONES PARA INTEGRAR PAGOS CON TARJETA:
+         *
+         * 1. PASARELAS DE PAGO RECOMENDADAS PARA COLOMBIA:
+         *    - Mercado Pago: https://www.mercadopago.com.co/developers
+         *    - PayU: https://developers.payulatam.com/latam/es/
+         *    - Wompi: https://wompi.co/developers
+         *    - ePayco: https://epayco.com/
+         *
+         * 2. PASOS BÁSICOS DE INTEGRACIÓN:
+         *    a) Crear cuenta en la pasarela elegida
+         *    b) Obtener API Keys (Public Key y Private Key)
+         *    c) Incluir SDK de la pasarela en el HTML:
+         *       <script src="https://sdk.mercadopago.com/js/v2"></script>
+         *    d) Implementar la función processCardPayment()
+         *    e) Descomentar el botón en el HTML (líneas 834-839)
+         *
+         * 3. EJEMPLO DE IMPLEMENTACIÓN CON MERCADO PAGO:
+         */
+
+        // Función para procesar pagos con tarjeta (comentada - listo para implementar)
+        /*
+        function processCardPayment() {
+            if (cart.length === 0) return;
+
+            // Calcular total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // EJEMPLO CON MERCADO PAGO:
+            // 1. Inicializar Mercado Pago con tu Public Key
+            // const mp = new MercadoPago('TU_PUBLIC_KEY', { locale: 'es-CO' });
+
+            // 2. Crear preferencia de pago
+            // const preference = {
+            //     items: cart.map(item => ({
+            //         title: item.name,
+            //         unit_price: item.price,
+            //         quantity: item.quantity
+            //     })),
+            //     back_urls: {
+            //         success: 'https://tu-sitio.com/success',
+            //         failure: 'https://tu-sitio.com/failure',
+            //         pending: 'https://tu-sitio.com/pending'
+            //     },
+            //     auto_return: 'approved'
+            // };
+
+            // 3. Llamar a tu backend para crear la preferencia
+            // fetch('/api/create-payment-preference', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ cart, total })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     // Redirigir al checkout de Mercado Pago
+            //     window.location.href = data.init_point;
+            // })
+            // .catch(error => {
+            //     console.error('Error al procesar pago:', error);
+            //     alert('Error al procesar el pago. Por favor intenta de nuevo.');
+            // });
+
+            // ALTERNATIVA: Modal de pago integrado
+            // mp.checkout({
+            //     preference: { id: preference_id },
+            //     render: {
+            //         container: '.payment-container',
+            //         label: 'Pagar'
+            //     }
+            // });
+
+            console.log('Función de pago con tarjeta lista para implementar');
+            alert('Pago con tarjeta próximamente disponible');
+        }
+        */
+
+        // BACKEND NECESARIO (Node.js/Express ejemplo):
+        /*
+        // app.js (backend)
+        const express = require('express');
+        const mercadopago = require('mercadopago');
+
+        mercadopago.configure({
+            access_token: 'TU_ACCESS_TOKEN'
+        });
+
+        app.post('/api/create-payment-preference', async (req, res) => {
+            const { cart, total } = req.body;
+
+            const preference = {
+                items: cart.map(item => ({
+                    title: item.name,
+                    unit_price: item.price,
+                    quantity: item.quantity,
+                    currency_id: 'COP'
+                })),
+                back_urls: {
+                    success: 'https://chorichava.com/success',
+                    failure: 'https://chorichava.com/failure',
+                    pending: 'https://chorichava.com/pending'
+                },
+                auto_return: 'approved',
+                notification_url: 'https://chorichava.com/api/webhooks/mercadopago'
+            };
+
+            try {
+                const response = await mercadopago.preferences.create(preference);
+                res.json({ init_point: response.body.init_point });
+            } catch (error) {
+                res.status(500).json({ error: 'Error al crear preferencia de pago' });
+            }
+        });
+        */
+
+        // ========== FIN DE CÓDIGO PARA PAGOS ==========
     </script>
 
 </body>
