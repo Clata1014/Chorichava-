@@ -106,6 +106,217 @@
             transform: scale(1.05);
         }
 
+        /* Carrito en navbar */
+        .cart-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: var(--dorado);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .cart-icon:hover {
+            background: #ffdb7a;
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--vino-oscuro);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 2px solid white;
+        }
+
+        /* Panel del carrito */
+        .cart-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: right 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-panel.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            background: var(--marron);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .cart-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: var(--vino-oscuro);
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-btn {
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--dorado);
+            background: white;
+            color: var(--vino-oscuro);
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cart-item-btn:hover {
+            background: var(--dorado);
+        }
+
+        .cart-item-qty {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .cart-item-remove {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .cart-item-remove:hover {
+            background: #cc0000;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 2px solid #eee;
+            background: #f9f9f9;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--vino-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .cart-checkout-btn {
+            width: 100%;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cart-checkout-btn:hover {
+            background: #20ba5a;
+            transform: scale(1.02);
+        }
+
+        .cart-checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         /* Menú móvil */
         .menu-toggle {
             display: none;
@@ -126,13 +337,13 @@
         /* ====== SECCIÓN HERO ====== */
         .hero {
             position: relative;
-            min-height: 50vh;
+            min-height: 35vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 60px 20px 40px;
             color: white;
             overflow: hidden;
         }
@@ -158,16 +369,8 @@
             z-index: 3;
             width: 350px;
             max-width: 85%;
-            margin-bottom: 25px;
+            margin-bottom: 0;
             filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4));
-        }
-
-        .hero-tagline {
-            font-size: 1.8rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            margin: 0;
         }
 
         /* ====== SECCIÓN SOBRE NOSOTROS ====== */
@@ -480,17 +683,22 @@
             }
 
             .hero {
-                min-height: 45vh;
-                padding: 60px 20px 40px;
+                min-height: 35vh;
+                padding: 50px 20px 30px;
             }
 
             .logo {
                 width: 280px;
-                margin-bottom: 15px;
+                margin-bottom: 0;
             }
 
-            .hero-tagline {
-                font-size: 1.3rem;
+            .cart-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .cart-panel.active {
+                right: 0;
             }
 
             .about h2, .products h2, .contact h2 {
@@ -542,6 +750,12 @@
                 <li><a href="#productos" class="nav-link">Productos</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 <li>
+                    <div class="cart-icon" onclick="toggleCart()" title="Ver Carrito">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+                <li>
                     <a href="https://wa.me/573001234567?text=Hola! Me gustaría hacer un pedido de ChoriChava"
                        class="nav-whatsapp" target="_blank">
                         <span>💬</span> Pedir Ahora
@@ -557,10 +771,32 @@
         </div>
     </nav>
 
+    <!-- PANEL DEL CARRITO -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>🛒 Tu Carrito</h3>
+            <button class="cart-close" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <p>Tu carrito está vacío</p>
+                <p style="font-size: 3rem; margin: 20px 0;">🛒</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="cart-checkout-btn" onclick="checkoutCart()">
+                <span>💬</span> Finalizar Pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
     <!-- HERO -->
     <section class="hero" id="inicio">
         <img src="Chorizo.png" alt="Logo ChoriChava" class="logo">
-        <p class="hero-tagline">Sabor auténtico en cada bocado</p>
     </section>
 
     <!-- SOBRE NOSOTROS -->
@@ -604,8 +840,8 @@
                         Perfecto para asar o cocinar. Sabor auténtico y delicioso.
                     </div>
                     <div class="product-price">$8.500</div>
-                    <button class="product-btn" onclick="pedirWhatsApp('Chorizo Tradicional')">
-                        Pedir ahora
+                    <button class="product-btn" onclick="addToCart('Chorizo Tradicional', 8500)">
+                        🛒 Agregar al Carrito
                     </button>
                 </div>
             </div>
@@ -620,8 +856,8 @@
                         le dan ese toque de sabor intenso sin perder la jugosidad.
                     </div>
                     <div class="product-price">$9.000</div>
-                    <button class="product-btn" onclick="pedirWhatsApp('Chorizo Picante')">
-                        Pedir ahora
+                    <button class="product-btn" onclick="addToCart('Chorizo Picante 🌶️', 9000)">
+                        🛒 Agregar al Carrito
                     </button>
                 </div>
             </div>
@@ -636,8 +872,8 @@
                         el mejor corte de carne. Una experiencia gourmet única.
                     </div>
                     <div class="product-price">$11.000</div>
-                    <button class="product-btn" onclick="pedirWhatsApp('Chorizo Premium')">
-                        Pedir ahora
+                    <button class="product-btn" onclick="addToCart('Chorizo Premium', 11000)">
+                        🛒 Agregar al Carrito
                     </button>
                 </div>
             </div>
@@ -652,8 +888,8 @@
                         Ideal para reuniones familiares y parrilladas.
                     </div>
                     <div class="product-price">$45.000</div>
-                    <button class="product-btn" onclick="pedirWhatsApp('Paquete Familiar')">
-                        Pedir ahora
+                    <button class="product-btn" onclick="addToCart('Paquete Familiar', 45000)">
+                        🛒 Agregar al Carrito
                     </button>
                 </div>
             </div>
@@ -709,11 +945,159 @@
     </a>
 
     <script>
-        // Función para enviar pedido específico por WhatsApp
-        function pedirWhatsApp(producto) {
-            const mensaje = encodeURIComponent(`Hola! Me gustaría pedir: ${producto}`);
-            window.open(`https://wa.me/573001234567?text=${mensaje}`, '_blank');
+        // ========== CARRITO DE COMPRAS ==========
+        let cart = [];
+
+        // Cargar carrito desde localStorage
+        function loadCart() {
+            const savedCart = localStorage.getItem('choriChavaCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartUI();
+            }
         }
+
+        // Guardar carrito en localStorage
+        function saveCart() {
+            localStorage.setItem('choriChavaCart', JSON.stringify(cart));
+        }
+
+        // Agregar producto al carrito
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            saveCart();
+            updateCartUI();
+
+            // Mostrar animación de éxito
+            showCartNotification();
+        }
+
+        // Mostrar notificación de producto agregado
+        function showCartNotification() {
+            const cartIcon = document.querySelector('.cart-icon');
+            cartIcon.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartIcon.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        // Actualizar interfaz del carrito
+        function updateCartUI() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartFooter = document.getElementById('cartFooter');
+            const cartTotal = document.getElementById('cartTotal');
+
+            // Actualizar contador
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Si el carrito está vacío
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <p>Tu carrito está vacío</p>
+                        <p style="font-size: 3rem; margin: 20px 0;">🛒</p>
+                    </div>
+                `;
+                cartFooter.style.display = 'none';
+                return;
+            }
+
+            // Mostrar productos
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+                    </div>
+                    <div class="cart-item-controls">
+                        <button class="cart-item-btn" onclick="decreaseQuantity('${item.name}')">-</button>
+                        <span class="cart-item-qty">${item.quantity}</span>
+                        <button class="cart-item-btn" onclick="increaseQuantity('${item.name}')">+</button>
+                        <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Calcular y mostrar total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `$${total.toLocaleString()}`;
+            cartFooter.style.display = 'block';
+        }
+
+        // Incrementar cantidad
+        function increaseQuantity(name) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity++;
+                saveCart();
+                updateCartUI();
+            }
+        }
+
+        // Decrementar cantidad
+        function decreaseQuantity(name) {
+            const item = cart.find(item => item.name === name);
+            if (item && item.quantity > 1) {
+                item.quantity--;
+                saveCart();
+                updateCartUI();
+            }
+        }
+
+        // Eliminar producto del carrito
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            saveCart();
+            updateCartUI();
+        }
+
+        // Toggle panel del carrito
+        function toggleCart() {
+            const cartPanel = document.getElementById('cartPanel');
+            cartPanel.classList.toggle('active');
+        }
+
+        // Finalizar compra y enviar a WhatsApp
+        function checkoutCart() {
+            if (cart.length === 0) return;
+
+            let mensaje = '*Pedido ChoriChava* 🌭\n\n';
+
+            cart.forEach(item => {
+                mensaje += `• ${item.name}\n`;
+                mensaje += `  Cantidad: ${item.quantity}\n`;
+                mensaje += `  Precio: $${item.price.toLocaleString()} c/u\n`;
+                mensaje += `  Subtotal: $${(item.price * item.quantity).toLocaleString()}\n\n`;
+            });
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            mensaje += `*TOTAL: $${total.toLocaleString()}*\n\n`;
+            mensaje += '¡Gracias por tu pedido! 🙏';
+
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            window.open(`https://wa.me/573001234567?text=${mensajeCodificado}`, '_blank');
+
+            // Opcional: limpiar carrito después de hacer pedido
+            // cart = [];
+            // saveCart();
+            // updateCartUI();
+            // toggleCart();
+        }
+
+        // ========== NAVEGACIÓN ==========
 
         // Toggle menú móvil
         function toggleMenu() {
@@ -752,6 +1136,21 @@
                 navbar.style.background = 'rgba(74, 26, 26, 0.95)';
             }
         });
+
+        // Cerrar carrito al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            const cartPanel = document.getElementById('cartPanel');
+            const cartIcon = document.querySelector('.cart-icon');
+
+            if (cartPanel.classList.contains('active') &&
+                !cartPanel.contains(e.target) &&
+                !cartIcon.contains(e.target)) {
+                cartPanel.classList.remove('active');
+            }
+        });
+
+        // Cargar carrito al iniciar la página
+        window.addEventListener('DOMContentLoaded', loadCart);
     </script>
 
 </body>
