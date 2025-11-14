@@ -20,18 +20,18 @@
         /* ====== SECCIÓN HERO ====== */
         .hero {
             position: relative;
-            min-height: 45vh;              /* 🔥 MUCHO más bajita que antes */
+            min-height: 42vh;            /* 🔥 más bajita = menos ruido */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px 20px 30px;       /* menos relleno arriba y abajo */
+            padding: 24px 20px 28px;
             color: white;
             overflow: hidden;
         }
 
-        /* Imagen de fondo + oscurecedor */
+        /* Imagen de fondo + oscurecedor más suave */
         .hero::before {
             content: "";
             position: absolute;
@@ -44,7 +44,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.30);  /* 🔥 menos oscuro, menos agresivo */
             z-index: -1;
         }
 
@@ -52,9 +52,9 @@
         .logo {
             position: relative;
             z-index: 2;
-            width: 520px;                  /* un pelín más pequeño */
-            transform: translateY(-35px);  /* 🔼 lo sube para que no tape tanto los chorizos */
-            margin-bottom: -25px;          /* acerca el botón sin bajar el logo */
+            width: 380px;          /* 🔥 más pequeño, no tapa el chorizo */
+            max-width: 80vw;
+            margin-bottom: 12px;   /* espacio pequeño al botón: ~2 renglones */
         }
 
         /* ====== BOTÓN ====== */
@@ -63,41 +63,41 @@
             z-index: 2;
             background: #7b0f13;
             color: white;
-            padding: 16px 38px;
+            padding: 14px 34px;
             border-radius: 40px;
             font-size: 1.1rem;
             font-weight: 600;
             border: 3px solid #ffcc66;
             text-decoration: none;
             transition: 0.3s;
-            margin-top: -10px;             /* queda cerquita del logo */
+            margin-top: 8px;       /* 🔥 pegadito al logo (2 renglones aprox.) */
         }
 
         .btn:hover {
             background: #a2161c;
             transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
         }
 
         /* ====== 📱 AJUSTES PARA CELULAR ====== */
         @media (max-width: 768px) {
 
             .hero {
-                min-height: 60vh;          /* algo más alta en cel para que respire */
-                padding-top: 40px;
-                padding-bottom: 40px;
+                min-height: 55vh;      /* un poco más alta en cel para que respire */
+                padding-top: 32px;
+                padding-bottom: 32px;
             }
 
             .logo {
-                width: 75%;               /* más pequeño y proporcional en cel */
-                transform: translateY(-20px);
-                margin-bottom: -15px;
+                width: 260px;          /* 🔥 más pequeño aún en celular */
+                max-width: 70vw;
+                margin-bottom: 10px;
             }
 
             .btn {
-                margin-top: 0;            /* un pelín más separadito en cel */
+                margin-top: 6px;       /* cerquita pero sin pegarse demasiado */
                 font-size: 1rem;
-                padding: 14px 30px;
+                padding: 12px 28px;
                 border-radius: 32px;
             }
         }
