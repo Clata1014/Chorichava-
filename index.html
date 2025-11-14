@@ -51,27 +51,27 @@
         /* ====== LOGO (ajustado) ====== */
         .logo {
             position: relative;
-            z-index: 2;
-            width: 300px;        /* 🔥 más pequeño (antes 380px) */
-            max-width: 80vw;
-            margin-bottom: 29px; /* 🔥 un pelín más arriba (antes 4px) */
+            z-index: 3;                 /* El logo arriba */
+            width: 22vw;                /* más pequeño */
+            max-width: 260px;           /* límite correcto */
+            transform: translateY(-40px); /* sube SIN mover el hero */
         }
 
         /* ====== BOTÓN ====== */
         .btn {
-            position: relative;
-            z-index: 2;
-            background: #7b0f13;
-            color: white;
-            padding: 14px 36px;
-            border-radius: 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: 3px solid #ffcc66;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-top: -120px;  
-        }
+              position: relative;
+              z-index: 3;
+              background: #7b0f13;
+              color: white;
+              padding: 14px 36px;
+              border-radius: 40px;
+              font-size: 1.1rem;
+              font-weight: 600;
+              border: 3px solid #ffcc66;
+              text-decoration: none;
+              transition: 0.3s;
+              transform: translateY(-15px); /* sube un poquito sin mover nada */ 
+              }
 
         .btn:hover {
             background: #a2161c;
