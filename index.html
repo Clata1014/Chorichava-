@@ -27,16 +27,112 @@
             --marron: #4a1a1a;
         }
 
+        /* ====== NAVBAR ====== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(74, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dorado);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--dorado);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-whatsapp:hover {
+            background: #20ba5a;
+            transform: scale(1.05);
+        }
+
+        /* Menú móvil */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
         /* ====== SECCIÓN HERO ====== */
         .hero {
             position: relative;
-            min-height: 30vh;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px 20px 10px;
+            padding: 80px 20px 60px;
             color: white;
             overflow: hidden;
         }
@@ -53,39 +149,25 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.20);
+            background: rgba(0, 0, 0, 0.35);
             z-index: -1;
         }
 
         .logo {
             position: relative;
             z-index: 3;
-            width: 22vw;
-            max-width: 260px;
-            transform: translateY(-37px);
+            width: 350px;
+            max-width: 85%;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4));
         }
 
-        .btn {
-            position: relative;
-            z-index: 3;
-            background: var(--vino-oscuro);
-            color: white;
-            padding: 14px 36px;
-            border-radius: 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: 3px solid var(--dorado);
-            text-decoration: none;
-            transition: 0.3s;
-            transform: translateY(-15px);
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background: var(--vino-claro);
-            transform: translateY(-17px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+        .hero-tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
         }
 
         /* ====== SECCIÓN SOBRE NOSOTROS ====== */
@@ -360,21 +442,55 @@
 
         /* ====== RESPONSIVE ====== */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+
+            .navbar-logo {
+                height: 40px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: rgba(74, 26, 26, 0.98);
+                flex-direction: column;
+                padding: 30px;
+                gap: 25px;
+                transition: left 0.3s;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+            }
+
+            .nav-whatsapp {
+                justify-content: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
             .hero {
-                min-height: 38vh;
-                padding-top: 25px;
-                padding-bottom: 15px;
+                min-height: 45vh;
+                padding: 60px 20px 40px;
             }
 
             .logo {
-                width: 250px;
-                margin-bottom: 6px;
+                width: 280px;
+                margin-bottom: 15px;
             }
 
-            .btn {
-                margin-top: 6px;
-                font-size: 1rem;
-                padding: 12px 28px;
+            .hero-tagline {
+                font-size: 1.3rem;
             }
 
             .about h2, .products h2, .contact h2 {
@@ -415,14 +531,40 @@
 
 <body>
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <img src="Chorichava Transparente.png" alt="ChoriChava" class="navbar-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#productos" class="nav-link">Productos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li>
+                    <a href="https://wa.me/573001234567?text=Hola! Me gustaría hacer un pedido de ChoriChava"
+                       class="nav-whatsapp" target="_blank">
+                        <span>💬</span> Pedir Ahora
+                    </a>
+                </li>
+            </ul>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <img src="Chorizo.png" alt="Logo ChoriChava" class="logo">
-        <a href="#productos" class="btn">Conoce nuestros productos</a>
+        <p class="hero-tagline">Sabor auténtico en cada bocado</p>
     </section>
 
     <!-- SOBRE NOSOTROS -->
-    <section class="about">
+    <section class="about" id="nosotros">
         <h2>Sabor Tradicional en Cada Bocado</h2>
         <p>
             En ChoriChava nos especializamos en crear chorizos artesanales con recetas tradicionales
@@ -519,7 +661,7 @@
     </section>
 
     <!-- CONTACTO -->
-    <section class="contact">
+    <section class="contact" id="contacto">
         <h2>¿Listo para probar?</h2>
         <p>Haz tu pedido ahora por WhatsApp y recibe tus chorizos frescos en la puerta de tu casa.</p>
 
@@ -573,12 +715,42 @@
             window.open(`https://wa.me/573001234567?text=${mensaje}`, '_blank');
         }
 
-        // Scroll suave para el botón del hero
-        document.querySelector('.hero .btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#productos').scrollIntoView({
-                behavior: 'smooth'
+        // Toggle menú móvil
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Navegación suave para todos los enlaces
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                // Cerrar menú móvil si está abierto
+                document.getElementById('navLinks').classList.remove('active');
+
+                // Scroll suave
+                if (targetSection) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // Cambiar navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(74, 26, 26, 1)';
+            } else {
+                navbar.style.background = 'rgba(74, 26, 26, 0.95)';
+            }
         });
     </script>
 
