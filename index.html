@@ -743,26 +743,28 @@
 
             .hero {
                 min-height: 100vh;
-                padding: 0 20px;
-                background-position: center center;
+                padding: 80px 20px 30px;
+                background-position: center 65%;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
             }
 
             .hero::before {
-                background-position: center center;
+                background-position: center 65%;
                 background-size: contain;
                 background-repeat: no-repeat;
             }
 
             .hero::after {
-                background: rgba(0, 0, 0, 0.15);
+                background: rgba(0, 0, 0, 0.05);
             }
 
             .logo {
-                width: 260px;
-                margin-bottom: 0;
+                width: 240px;
+                margin-bottom: 40px;
+                margin-top: 0;
             }
 
             .cart-panel {
