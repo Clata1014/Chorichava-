@@ -747,16 +747,23 @@
 
             .hero {
                 min-height: 100vh;
-                padding: 75px 0 0 0;
-                background: linear-gradient(to bottom, #faf6f0 0%, #f5f0e8 100%);
+                max-height: 100vh;
+                padding: 0;
+                background: transparent;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
             }
 
             .hero::before {
-                display: none;
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url("Chori.png") center center / cover no-repeat;
+                z-index: -1;
             }
 
             .hero::after {
@@ -764,37 +771,25 @@
             }
 
             .logo {
-                width: 280px;
-                margin-bottom: 0;
-                margin-top: 0;
-                padding: 0 15px;
-                filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
-                animation: fadeInLogo 1s ease-out;
+                width: 260px;
+                margin: 0;
+                padding: 0;
+                filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+                animation: floatLogo 3s ease-in-out infinite;
+                z-index: 10;
             }
 
-            @keyframes fadeInLogo {
-                from {
-                    opacity: 0;
-                    transform: translateY(-15px);
+            @keyframes floatLogo {
+                0%, 100% {
+                    transform: translateY(0px);
                 }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
+                50% {
+                    transform: translateY(-10px);
                 }
             }
 
             .hero-image-mobile {
-                display: block;
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                border-radius: 0;
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
-                flex: 1;
-                object-fit: cover;
-                object-position: center;
+                display: none;
             }
 
             .cart-panel {
