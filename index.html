@@ -747,12 +747,12 @@
 
             .hero {
                 min-height: 100vh;
-                padding: 70px 10px 30px;
+                padding: 75px 0 0 0;
                 background: linear-gradient(to bottom, #faf6f0 0%, #f5f0e8 100%);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
             }
 
             .hero::before {
@@ -764,10 +764,11 @@
             }
 
             .logo {
-                width: 260px;
-                margin-bottom: 10px;
+                width: 280px;
+                margin-bottom: 0;
                 margin-top: 0;
-                filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+                padding: 0 15px;
+                filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
                 animation: fadeInLogo 1s ease-out;
             }
 
@@ -788,8 +789,12 @@
                 max-width: 100%;
                 height: auto;
                 border-radius: 0;
-                margin-bottom: 0;
+                margin: 0;
+                padding: 0;
                 box-shadow: none;
+                flex: 1;
+                object-fit: cover;
+                object-position: center;
             }
 
             .cart-panel {
